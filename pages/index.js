@@ -85,14 +85,7 @@ export default function Home() {
       ) : (
         <button onClick={startGame}>start game</button>
       )}
-      <div className="absolute bottom-4 w-full">
-      <Link href="/" >
-          <div className="flex gap-1 text-3xl font-semibold justify-center items-center">
-            The <h1 className="text-green-500 font-bold">higher</h1>/
-            <h1 className="text-red-500 font-bold">lower</h1> game.
-          </div>
-        </Link>
-      </div>
+      
       
     </div>
   );
@@ -134,5 +127,15 @@ export default function Home() {
                   />
                 </svg>
               </button>
+
+
+              <div className="absolute bottom-4 w-full">
+      <Link href="/" >
+          <div className="flex gap-1 text-3xl font-semibold justify-center items-center">
+            The <h1 className="text-green-500 font-bold">higher</h1>/
+            <h1 className="text-red-500 font-bold">lower</h1> game.
+          </div>
+        </Link>
+      </div>
                */
 }
