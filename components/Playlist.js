@@ -21,13 +21,13 @@ export const Playlist = (props) => {
     console.log(playlist)
     if(playlist){
         return(
-            <div className='flex gap-1 justify-end items-center w-1/4 '>
+            <div className='flex gap-1 justify-end items-center'>
                 <img src={playlist?.images[0]?.url} className="w-12" alt="" />
                 <h1 className='text-xl font-semibold'>{playlist?.name}</h1>
             </div>
           )
   }else{
-    return <h1>Loading</h1>
+    return <h1 className='w-1/4 text-right text-2xl'>Loading...</h1>
   }
   
 }
