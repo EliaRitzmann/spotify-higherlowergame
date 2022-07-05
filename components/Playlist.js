@@ -19,11 +19,15 @@ export const Playlist = (props) => {
     
 
     console.log(playlist)
-
-  return(
-    <div className='flex gap-1 justify-end items-center w-1/4 '>
-        <img src={playlist?.images[0]?.url} className="w-12" alt="" />
-        <h1 className='text-xl font-semibold'>{playlist?.name}</h1>
-    </div>
-  )
+    if(playlist){
+        return(
+            <div className='flex gap-1 justify-end items-center w-1/4 '>
+                <img src={playlist?.images[0]?.url} className="w-12" alt="" />
+                <h1 className='text-xl font-semibold'>{playlist?.name}</h1>
+            </div>
+          )
+  }else{
+    return <h1>Loading</h1>
+  }
+  
 }
