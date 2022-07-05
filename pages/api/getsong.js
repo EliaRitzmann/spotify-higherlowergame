@@ -5,19 +5,26 @@ import qs from "qs"
 export default async function handler(req, res) {
     const {oldsong, playlist_id } = req.query;
 
-    console.log("oldsong: " + oldsong)
     
-    var song = await getrandom(playlist_id)
+    var song = await getrandom(playlist_id, oldsong)
     res.status(200).json(song)
   }
 
 
   //returns a random song from the playlist
-  const getrandom = async (playlist_id) => {
+  const getrandom = async (playlist_id, oldsong) => {
     var response = await getTop50(playlist_id)
     var playlist = await response.json()
 
-    console.log(playlist)
+    //remove oldsong from aarray
+    for (let i = 0; i < playlist.tracks.items.length; i++) {
+      if(playlist.tracks.items[i].track.id == oldsong){
+        playlist.tracks.items.splice(i, 1)
+        console.log("removed song")
+      }
+      
+    }
+
 
     //random number between 0 and the number of tracks in the playlist
     var index = Math.floor(Math.random() * playlist.tracks.items.length);

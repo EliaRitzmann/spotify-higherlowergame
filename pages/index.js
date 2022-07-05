@@ -4,7 +4,8 @@ export default function Home() {
 const [songs, setSongs] = useState(["", ""])
 
 async function homie(){
-  const res = await fetch("/api/getsong?oldsong="+ songs[1] + "&playlist_id=37i9dQZEVXbMDoHDwVN2tF");
+  //fetch new raandom song and provide old song so there are no dublicates 
+  const res = await fetch("/api/getsong?oldsong="+ songs[1].track.id + "&playlist_id=37i9dQZEVXbMDoHDwVN2tF");
   const newsong = await res.json();
   setSongs([songs[1], newsong])
 }
@@ -15,7 +16,6 @@ async function homie(){
     <div >
       <h1>hallo</h1>
       <button onClick={homie}>get token</button>
-      
     </div>
   )
 }
