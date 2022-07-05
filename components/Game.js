@@ -36,7 +36,7 @@ const guess = props.guess
 
         </div>
 
-        <div className="flex flex-col gap-6 mt-4 items-center">
+        <div className="flex flex-col gap-2 items-center">
             <div className="flex flex-col items-center">
               <h1>Is</h1>
               <h1 className="font-semibold text-center">{songs[1].track.name}</h1>
