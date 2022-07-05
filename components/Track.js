@@ -2,7 +2,7 @@ import React from 'react'
 
 export const Track = (props) => {
   return (
-    <div className='flex flex-col items-center w-64'>
+    <div className='flex flex-col items-center w-64 h-80'>
         <div>
             <img className='w-64' src={props.track?.album.images[0].url} alt="" />
         </div>

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { Track } from "../components/Track";
+import { Game } from "../components/Game";
+import { Playlist } from "../components/Playlist";
 
 export default function Home() {
   const [songs, setSongs] = useState(["", ""]);
@@ -38,67 +39,21 @@ export default function Home() {
       
   }
 
-  console.log(songs);
-
   return (
     <div className="p-5">
       <div className="w-full flex justify-between mb-20 items-center">
-      <h1 className="text-4xl font-semibold">Score: {score}</h1>
+      <h1 className="text-4xl font-semibold w-1/4">Score: {score}</h1>
       
-      <h1 className="flex gap-1 text-3xl font-semibold">The <h1 className="text-green-500 font-bold">higher</h1>/<h1 className="text-red-500 font-bold" >lower</h1> game.</h1>
-      <h1>PlayList: ushdkaj</h1>
+      <a href="/" className="flex gap-1 text-3xl font-semibold">The <h1 className="text-green-500 font-bold">higher</h1>/<h1 className="text-red-500 font-bold" >lower</h1> game.</a>
+      <Playlist playlist_id="37i9dQZEVXbMDoHDwVN2tF" className="w-1/4"></Playlist>
       </div>
       
 
       {songs[0] ? (
-        <div className="flex items-center justify-center gap-10">
-
-          {/*Song 1 */}
-          <div className="flex flex-col gap-1">
-          <div className="h-24 flex justify-center items-center gap-1 ">
-              <h1 className="text-2xl ">Popularity:</h1>
-              <h1 className="text-2xl font-semibold">
-                {songs[0].track.popularity}
-              </h1>
-            </div>
-            <Track track={songs[0].track}></Track>
-          </div>
-
-
-
-          {/*middle*/}
-          <div className="flex flex-col w-44 gap-4">
-            <div className="flex flex-col justify-center items-center text-lg">
-              <h1>Is</h1>
-              <h1 className="font-semibold text-center">{songs[1].track.name}</h1>
-               <h1>more popular than</h1>
-               <h1 className="font-semibold text-center">{songs[0].track.name} ?</h1>
-            </div>
-           
-          <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-full" onClick={() => guess(true)}>
-                yes
-              </button>
-              <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full" onClick={() => guess(false)}>
-                no
-              </button>
-          </div>
-
-          {/*Song 2 */}
-          <div className="flex flex-col gap-1">
-          
-            <div className="h-24 flex justify-center items-center gap-1 ">
-              <h1 className="text-2xl ">Popularity:</h1>
-              <h1 className="text-2xl font-semibold">
-                ?
-              </h1>
-            </div>
-            <Track track={songs[1].track}></Track>
-          </div>
-        </div>
+        <Game songs={songs} guess={guess}></Game>
       ) : (
         <button onClick={startGame}>start game</button>
       )}
-      <button onClick={getSong}>addsong</button>
     </div>
   );
 }
