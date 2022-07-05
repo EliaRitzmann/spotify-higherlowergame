@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import { Game } from "../components/Game";
 import { Playlist } from "../components/Playlist";
@@ -44,7 +45,7 @@ export default function Home() {
       <div className="w-full flex justify-between mb-20 items-center">
       <h1 className="text-4xl font-semibold w-1/4">Score: {score}</h1>
       
-      <a href="/" className="flex gap-1 text-3xl font-semibold">The <h1 className="text-green-500 font-bold">higher</h1>/<h1 className="text-red-500 font-bold" >lower</h1> game.</a>
+      <Link href="/" ><div className="flex gap-1 text-3xl font-semibold">The <h1 className="text-green-500 font-bold">higher</h1>/<h1 className="text-red-500 font-bold" >lower</h1> game.</div></Link>
       <Playlist playlist_id="37i9dQZEVXbMDoHDwVN2tF" className="w-1/4"></Playlist>
       </div>
       
