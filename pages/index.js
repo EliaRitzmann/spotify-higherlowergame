@@ -1,7 +1,8 @@
-import Link from "next/link";
+import Head from 'next/head'
 import { useEffect, useState } from "react";
 import { Game } from "../components/Game";
 import { Playlist } from "../components/Playlist";
+import { StartScreen } from '../components/StartScreen';
 
 export default function Home() {
   const [songs, setSongs] = useState(["", ""]);
@@ -58,6 +59,9 @@ export default function Home() {
 
   return (
     <div className=" w-screen">
+      <Head>
+        <title>Spotify Higher Lower Game</title>
+      </Head>
       <div className="w-full flex justify-between mb-20 items-center">
       {/*
       <Link href="/">
@@ -83,7 +87,7 @@ export default function Home() {
       {songs[0] ? (
         <Game songs={songs} guess={guess}></Game>
       ) : (
-        <button onClick={startGame}>start game</button>
+        <StartScreen startGame={startGame}></StartScreen>
       )}
       
       
