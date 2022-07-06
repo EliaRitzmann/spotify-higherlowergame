@@ -27,7 +27,7 @@ export const Playlist = (props) => {
             </div>
           )
   }else{
-    return <h1 className='w-1/4 text-right text-2xl'>Loading...</h1>
+    return <h1 className=' text-right text-2xl'>Loading...</h1>
   }
   
 }
